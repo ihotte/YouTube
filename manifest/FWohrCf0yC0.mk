@@ -1,4 +1,5 @@
 #
+# [페이스캠4K] 에이핑크 윤보미 '덤더럼' (Apink YOON BO MI 'Dumhdurum' FaceCam)│@SBS Inkigayo_2020.4.26
 # https://www.youtube.com/watch?v=FWohrCf0yC0
 #
 # 140 m4a   audio only     |    3.60MiB   129k https | audio only         mp4a.40.2  129k 44100Hz medium, m4a_dash
