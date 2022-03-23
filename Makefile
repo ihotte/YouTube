@@ -1,0 +1,45 @@
+
+ARCH:=$(shell uname -s)
+ARGS:=
+
+COMMA:=,
+EMPTY:=
+SPACE:=$(EMPTY) $(EMPTY)
+
+ifeq ($(ARCH), Darwin)
+  export ORIG_PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+  ARGS+= --proxy socks5://127.0.0.1:7890
+else
+  export ORIG_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+endif
+
+
+yt:=.bin/yt-dlp $(ARGS)
+yt+=--config-location yt-dlp.conf
+
+
+vid:=AEcaaqAwHsI
+
+export PATH=$(CURDIR)/.bin:$(ORIG_PATH)
+include $(CURDIR)/manifest/$(vid).mk
+fid:=$(subst $(SPACE),$(COMMA),$(fid))
+
+
+i:
+	[ -d "./download/$(vid)/" ] || mkdir "./download/$(vid)/"
+	$(yt) -F $(vid) |tee "./download/$(vid)/manifest.md"
+
+f:
+	$(yt) --get-filename $(vid)
+	$(yt) --get-filename -f $(fid) $(vid)
+
+d:
+	$(yt) -k -f $(fid) $(vid)
+
+
+git:
+	rm -rf .git
+	git init
+	git add .
+	git status
+
