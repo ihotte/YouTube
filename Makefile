@@ -13,14 +13,13 @@ else
   export ORIG_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 endif
 
-
-yt:=.bin/yt-dlp $(ARGS)
-yt+=--config-location yt-dlp.conf
+export PATH=$(CURDIR)/.bin:$(ORIG_PATH)
 
 
 vid:=AEcaaqAwHsI
 
-export PATH=$(CURDIR)/.bin:$(ORIG_PATH)
+yt:=.bin/yt-dlp --config-location yt-dlp.conf $(ARGS)
+
 include $(CURDIR)/manifest/$(vid).mk
 fid:=$(subst $(SPACE),$(COMMA),$(fid))
 
@@ -36,10 +35,4 @@ f:
 d:
 	$(yt) -k -f $(fid) $(vid)
 
-
-git:
-	rm -rf .git
-	git init
-	git add .
-	git status
 
