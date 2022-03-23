@@ -36,3 +36,9 @@ d:
 	$(yt) -k -f $(fid) $(vid)
 
 
+
+push:
+	git status && read
+	git add .
+	git commit -m "$(shell date)"
+	git push
