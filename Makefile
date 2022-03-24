@@ -15,7 +15,7 @@ endif
 export PATH=$(CURDIR)/.bin:$(ORIG_PATH)
 
 
-vid:=rgx6wsiSwCI
+vid:=dfMELZBBVRY
 
 yt:=.bin/yt-dlp --config-location yt-dlp.conf $(ARGS)
 

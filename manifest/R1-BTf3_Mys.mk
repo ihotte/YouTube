@@ -1,0 +1,20 @@
+#
+# AOA - 흔들려 (Confused) M/V
+# https://www.youtube.com/watch?v=R1-BTf3_Mys
+#
+
+# ----------------------------------------------------------------------------------------------------------------
+# ID  EXT   RESOLUTION FPS |  FILESIZE   TBR PROTO | VCODEC          VBR ACODEC      ABR     ASR MORE INFO
+# ----------------------------------------------------------------------------------------------------------------
+# 140 m4a   audio only     |   3.70MiB  127k https | audio only          mp4a.40.2  127k 44100Hz medium, m4a_dash
+# 251 webm  audio only     |   3.69MiB  126k https | audio only          opus       126k 48000Hz medium, webm_dash
+# 137 mp4   1920x1080   24 |  61.85MiB 2125k https | avc1.640028   2125k video only              1080p, mp4_dash
+# 248 webm  1920x1080   24 |  65.18MiB 2239k https | vp9           2239k video only              1080p, webm_dash
+# ----------------------------------------------------------------------------------------------------------------
+
+
+vid:=R1-BTf3_Mys
+fid:=140,251
+fid+=137+140
+fid+=248+251
+
