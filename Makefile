@@ -12,21 +12,21 @@ ifeq ($(ARCH), Darwin)
 else
   export ORIG_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 endif
-
 export PATH=$(CURDIR)/.bin:$(ORIG_PATH)
 
 
-vid:=AEcaaqAwHsI
+vid:=2n2qlwgR7-g
 
 yt:=.bin/yt-dlp --config-location yt-dlp.conf $(ARGS)
 
+$(shell touch $(CURDIR)/manifest/$(vid).mk)
 include $(CURDIR)/manifest/$(vid).mk
 fid:=$(subst $(SPACE),$(COMMA),$(fid))
 
 
 i:
 	[ -d "./download/$(vid)/" ] || mkdir "./download/$(vid)/"
-	$(yt) -F $(vid) |tee "./download/$(vid)/manifest.md"
+	$(yt) -F $(vid) |tee "./download/$(vid)/$(vid).md"
 
 f:
 	$(yt) --get-filename $(vid)
