@@ -40,6 +40,7 @@ d:
 push:
 	git status && read
 	git add .
+	git status && read
 	git commit -m "$(shell date)"
 	git push
 
